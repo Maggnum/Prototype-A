@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="menu">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#photos">My Photos</a></li>
+      <li><a href="#playlist">My Playlist</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </div>
+    <div class="container">
+      <section id="about" class="section">
+        <br />
+        about me
+        <br />
+        text about me text about me text about me text about me text about me
+        <br />
+        text about me text about me text about me text about me text about me
+      </section>
+
+      <section id="photos" class="section">
+        <br />
+        my photos
+        <br />
+
+        <div class="gallery">
+          <div class="gallery-item">
+            <a target="_blank" href="img_5terre.jpg">
+              <img
+                src="img_5terre.jpg"
+                alt="Cinque Terre"
+                width="600"
+                height="400"
+              />
+            </a>
+            <div class="desc">Cinque Terre</div>
+          </div>
+
+          <div class="gallery-item">
+            <a target="_blank" href="img_forest.jpg">
+              <img src="img_forest.jpg" alt="Forest" width="600" height="400" />
+            </a>
+            <div class="desc">Green Forest</div>
+          </div>
+
+          <div class="gallery-item">
+            <a target="_blank" href="img_lights.jpg">
+              <img
+                src="img_lights.jpg"
+                alt="Northern Lights"
+                width="600"
+                height="400"
+              />
+            </a>
+            <div class="desc">Northern Lights</div>
+          </div>
+
+          <div class="gallery-item">
+            <a target="_blank" href="img_mountains.jpg">
+              <img
+                src="img_mountains.jpg"
+                alt="Mountains"
+                width="600"
+                height="400"
+              />
+            </a>
+            <div class="desc">Mountains</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="playlist" class="section">
+        <br />
+        my playlist
+        <br />
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/DtjEOzq9z-8?si=y5IbSxke9St3k0p0"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+
+      <section id="contact" class="section">
+        <br />
+
+        contact me
+        <br />
+        <div class="container">
+          <form action="action_page.php">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="Your email..."
+            />
+
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="Message subject..."
+            />
+
+            <label for="message">Message</label>
+            <button type="button" onclick="toggleEmojiDrawer()">😄</button>
+            <div id="drawer" class="emoji-drawer hidden">
+              <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+              <div class="emoji" onclick="addEmoji(this.innerHTML)">😃</div>
+              <div class="emoji" onclick="addEmoji(this.innerHTML)">😄</div>
+              <div class="emoji" onclick="addEmoji(this.innerHTML)">😁</div>
+              <div class="emoji" onclick="addEmoji(this.innerHTML)">😆</div>
+            </div>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Write something.."
+              style="height: 200px"
+            >
+            </textarea>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <script src="javascript.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $("#nav a").click(function (e) {
+          e.preventDefault();
+          $("html,body").scrollTo(this.hash, this.hash);
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).scroll(function() {
+         $('#menu').toggle($(this).scrollTop()>1000)
+      });​
+    </script>
+  </body>
+</html>
