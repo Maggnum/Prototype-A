@@ -1,10 +1,10 @@
-function addEmoji(emoji) {
-  const inputEle = document.getElementById("message");
+const addEmoji = (emoji) => {
+  const input = document.getElementById("message");
 
-  inputEle.value += emoji;
-}
+  input.value += emoji;
+};
 
-function toggleEmojiDrawer() {
+const toggleEmojiDrawer = () => {
   const drawer = document.getElementById("drawer");
 
   if (drawer.classList.contains("hidden")) {
@@ -12,4 +12,33 @@ function toggleEmojiDrawer() {
   } else {
     drawer.classList.add("hidden");
   }
-}
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  emailjs.init({
+    publicKey: "4_zh7jIlJS3ioHRWX",
+  });
+
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    emailjs.sendForm("service_nrztmni", "template_qtvps3i", form).then(
+      () => {
+        Swal.fire({
+          icon: "success",
+          title: "Email sent successfully",
+        });
+        form.reset();
+      },
+      (error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Failed to send message",
+          text: "Please try again",
+        });
+        console.log("email failed: ", error);
+      }
+    );
+  });
+});

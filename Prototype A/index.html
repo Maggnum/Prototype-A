@@ -1,150 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Morgan's Website</title>
   </head>
+
   <body>
-    <div id="menu">
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#photos">My Photos</a></li>
-      <li><a href="#playlist">My Playlist</a></li>
-      <li><a href="#contact">Contact Me</a></li>
-    </div>
+    <nav id="menu">
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#photos">My Photos</a></li>
+        <li><a href="#playlist">My Playlist</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+      </ul>
+    </nav>
+
     <div class="container">
       <section id="about" class="section">
-        <br />
-        about me
-        <br />
-        text about me text about me text about me text about me text about me
-        <br />
-        text about me text about me text about me text about me text about me
+        <h2>About Me</h2>
+        <p>My name is Morgan Cohen, I was born in Be'er Sheva in 2005...</p>
       </section>
 
       <section id="photos" class="section">
-        <br />
-        my photos
-        <br />
+        <h2>My Photos</h2>
 
         <div class="gallery">
           <div class="gallery-item">
-            <a target="_blank" href="img_5terre.jpg">
-              <img
-                src="img_5terre.jpg"
-                alt="Cinque Terre"
-                width="600"
-                height="400"
-              />
-            </a>
-            <div class="desc">Cinque Terre</div>
+            <img src="images/temple.jpg" alt="Temple" />
+            <div class="desc">Temple</div>
           </div>
 
           <div class="gallery-item">
-            <a target="_blank" href="img_forest.jpg">
-              <img src="img_forest.jpg" alt="Forest" width="600" height="400" />
-            </a>
-            <div class="desc">Green Forest</div>
+            <img src="images/sea.jpg" alt="sea" />
+            <div class="desc">The sea</div>
           </div>
 
           <div class="gallery-item">
-            <a target="_blank" href="img_lights.jpg">
-              <img
-                src="img_lights.jpg"
-                alt="Northern Lights"
-                width="600"
-                height="400"
-              />
-            </a>
-            <div class="desc">Northern Lights</div>
+            <img src="images/snowman.jpg" alt="snowman" />
+            <div class="desc">snowman</div>
           </div>
 
           <div class="gallery-item">
-            <a target="_blank" href="img_mountains.jpg">
-              <img
-                src="img_mountains.jpg"
-                alt="Mountains"
-                width="600"
-                height="400"
-              />
-            </a>
-            <div class="desc">Mountains</div>
+            <img src="images/morgan.jpg" alt="morgan" />
+            <div class="desc">myself</div>
           </div>
         </div>
       </section>
 
       <section id="playlist" class="section">
-        <br />
-        my playlist
-        <br />
+        <h2>My Playlist</h2>
         <iframe
           width="560"
           height="315"
-          src="https://www.youtube.com/embed/DtjEOzq9z-8?si=y5IbSxke9St3k0p0"
+          src="https://www.youtube.com/embed/DtjEOzq9z-8"
           title="YouTube video player"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
       </section>
 
       <section id="contact" class="section">
-        <br />
+        <h2>Contact Me</h2>
 
-        contact me
-        <br />
-        <div class="container">
-          <form action="action_page.php">
-            <label for="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Your email..."
-            />
+        <form id="contact-form">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Your email..."
+            required
+          />
 
-            <label for="subject">Subject</label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              placeholder="Message subject..."
-            />
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Message subject..."
+          />
 
+          <div style="display: flex; flex-direction: row">
             <label for="message">Message</label>
-            <button type="button" onclick="toggleEmojiDrawer()">😄</button>
-            <div id="drawer" class="emoji-drawer hidden">
-              <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
-              <div class="emoji" onclick="addEmoji(this.innerHTML)">😃</div>
-              <div class="emoji" onclick="addEmoji(this.innerHTML)">😄</div>
-              <div class="emoji" onclick="addEmoji(this.innerHTML)">😁</div>
-              <div class="emoji" onclick="addEmoji(this.innerHTML)">😆</div>
+            <div style="flex-grow: 1"></div>
+            <div class="emoji-wrapper">
+              <button
+                type="button"
+                class="emoji-btn"
+                onclick="toggleEmojiDrawer()"
+              >
+                😄
+              </button>
+              <div id="drawer" class="emoji-drawer hidden">
+                <div class="emoji" onclick="addEmoji(this.innerHTML)">😀</div>
+                <div class="emoji" onclick="addEmoji(this.innerHTML)">😃</div>
+                <div class="emoji" onclick="addEmoji(this.innerHTML)">😄</div>
+                <div class="emoji" onclick="addEmoji(this.innerHTML)">😁</div>
+                <div class="emoji" onclick="addEmoji(this.innerHTML)">😆</div>
+              </div>
             </div>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Write something.."
-              style="height: 200px"
-            >
-            </textarea>
-            <input type="submit" value="Submit" />
-          </form>
-        </div>
+          </div>
+
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Write something..."
+            style="height: 200px"
+            required
+          ></textarea>
+
+          <input type="submit" value="Submit" />
+        </form>
       </section>
     </div>
 
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="javascript.js"></script>
-    <script type="text/javascript">
-      $(function () {
-        $("#nav a").click(function (e) {
-          e.preventDefault();
-          $("html,body").scrollTo(this.hash, this.hash);
-        });
-      });
-    </script>
-    <script type="text/javascript">
-      $(document).scroll(function() {
-         $('#menu').toggle($(this).scrollTop()>1000)
-      });​
-    </script>
   </body>
 </html>

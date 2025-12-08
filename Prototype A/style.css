@@ -1,32 +1,73 @@
-.container {
-  text-align: center;
+/* General Layout */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #fafafa;
+  color: #333;
 }
 
-#menu {
+h2 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  padding-bottom: 80px;
+}
+
+/* Navigation bar */
+nav#menu {
   position: sticky;
   top: 0;
-  background: #3e5c76;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 10vh;
-  width: 100%;
+  background: white;
+  padding: 15px 0;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.gallery {
+nav#menu ul {
+  list-style: none;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+nav#menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+nav#menu a:hover {
+  color: #3a6ea5;
+}
+
+/* Sections */
+.section {
+  margin: 60px 0;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
 }
 
 .gallery-item {
-  margin: 5px;
-  border: 1px solid #ccc;
-  width: 180px;
-}
-
-.gallery-item:hover {
-  border: 1px solid #777;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-item img {
@@ -34,48 +75,66 @@
   height: auto;
 }
 
-.gallery-item #desc {
-  padding: 15px;
+.gallery-item .desc {
+  padding: 10px;
+  font-size: 14px;
+  color: #666;
   text-align: center;
 }
 
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+/* Contact form */
+form {
+  padding: 10px;
 }
 
 input[type="text"],
-select,
 textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  background: #f9f9f9;
 }
 
 input[type="submit"] {
-  background-color: #04aa6d;
+  background: #3a6ea5;
   color: white;
   padding: 12px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background: #2f5684;
+}
+
+/* Emoji drawer */
+.emoji-wrapper {
+  position: relative;
+}
+
+.emoji-btn {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
 }
 
 .emoji-drawer {
+  position: absolute;
+  top: 40px;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  transition: opacity 0.2s;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .hidden {
@@ -83,11 +142,6 @@ input[type="submit"]:hover {
 }
 
 .emoji {
-  text-align: center;
-  font-size: 24px;
-  padding: 8px;
-}
-
-.emoji:hover {
+  font-size: 20px;
   cursor: pointer;
 }
